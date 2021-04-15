@@ -26,7 +26,6 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Optional;
 import com.google.common.base.Predicate;
 import com.google.common.base.Strings;
-import com.google.common.base.Throwables;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMultimap;
@@ -379,7 +378,7 @@ public class TestTDClient
                     return new JSONArray(result);
                 }
                 catch (Exception e) {
-                    throw Throwables.propagate(e);
+                    throw new RuntimeException(e);
                 }
             }
         });
@@ -408,7 +407,7 @@ public class TestTDClient
                     return null;
                 }
                 catch (IOException e) {
-                    throw Throwables.propagate(e);
+                    throw new RuntimeException(e);
                 }
             }
         });
@@ -589,7 +588,7 @@ public class TestTDClient
                     return new JSONArray(result);
                 }
                 catch (Exception e) {
-                    throw Throwables.propagate(e);
+                    throw new RuntimeException(e);
                 }
             }
         });
@@ -1017,7 +1016,7 @@ public class TestTDClient
                     return result;
                 }
                 catch (IOException e) {
-                    throw Throwables.propagate(e);
+                    throw new RuntimeException(e);
                 }
             }
         });
@@ -1266,7 +1265,7 @@ public class TestTDClient
                         return errorRecordCount;
                     }
                     catch (IOException e) {
-                        throw Throwables.propagate(e);
+                        throw new RuntimeException(e);
                     }
                 }
             });
